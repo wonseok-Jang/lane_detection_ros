@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <!-- Lidar topic and weights, config and classes files -->
+	<arg name="camera_topic" default="/usb_cam/image_raw"/>
+	<arg name="epoch" default="804"/>
+	<arg name="loss" default="tensor(0.5786)"/>
+	<arg name="model_path" default="$(find lane_detector_ros)/model/"/>
+
+    <!-- Published topics -->
+    <arg name="result_lane_topic"      default="/lane_detector/lane_pos/"/>
+
+	<node pkg="lane_detector_ros" type="lane_detector_node.py" name="lane_detector_node" output="screen">
+		<param name="camera_topic" value="$(arg camera_topic)" />
+		<param name="epoch" value="804" />
+		<param name="loss" value="tensor(0.5786)" />
+		<param name="model_path" value="$(find lane_detector_ros)/model/" />
+		<param name="image_path" value="/aveesSSD/dataset/CAM_FL/" />
+        <param name="result_lane_topic" value="/lane_detector/lane_pos/"/>
+	</node>
+
+</launch>
+
+

@@ -37,17 +37,13 @@ class LaneDetector:
         self.result_lane_topic = rospy.get_param("~result_lane_topic")
         self.image_path = rospy.get_param("~image_path")
         self.model_path = rospy.get_param("~model_path")
-        self.epoch = rospy.get_param("~epoch")
-        self.loss = rospy.get_param("~loss")
 
-        path = self.model_path+str(self.epoch)+'_'+str(self.loss)+'_'+'lane_detection_network.pkl'
-
-        print("  Model: {0:s}".format(path))
+        print("  Model: {0:s}".format(self.model_path))
 
         sub_image = rospy.Subscriber(self.camera_topic, Image, self.imageCb, queue_size=1)
     
         # Load weights
-        self.lane_agent.load_weights(path)
+        self.lane_agent.load_weights(self.model_path)
 
         # Check image
         self.camera_status = False

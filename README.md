@@ -16,9 +16,8 @@ $ cd <CATKIN_WORKSPACE>/src
 $ git clone https://github.com/wonseok-Jang/lane_detector_ros
 ```
 * Build using python3
-```
+
 Modify /opt/ros/melodic/etc/catkin/profile.d/1.ros_python_vision.sh
-```
 from 
 ```
 export ROS_PYTHON_VERSION=2

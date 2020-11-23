@@ -38,6 +38,9 @@ $ cd <CATKIN_WORKSPACE> && catkin_make -j <CPU cores>
 ### Subscribed topic
 * `/usb_cam/image_raw`: sensor_msgs::Image (You can change topic name in `launch/lane_detector.launch`)
 
+### Published topic
+* `/lane_detector/lane_pos`: lane_detector_ros::Lane (You can change topic name in `launch/lane_detector.launch`)
+
 
 
 

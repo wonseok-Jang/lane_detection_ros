@@ -2,17 +2,17 @@
 
 <launch>
     <!-- Lidar topic and weights, config and classes files -->
-	<arg name="camera_topic" default="/usb_cam/image_raw"/>
+	<arg name="camera_topic" default="/videofile/image_raw"/>
 	<arg name="model_path" default="$(find lane_detector_ros)/model/804_tensor(0.5786)_lane_detection_network.pkl"/>
 
     <!-- Published topics -->
-    <arg name="result_lane_topic"      default="/lane_detector/lane_pos/"/>
+    <arg name="lane_topic"      default="/lane_detector/lane_pos/"/>
 
 	<node pkg="lane_detector_ros" type="lane_detector_node.py" name="lane_detector_node" output="screen">
 		<param name="camera_topic" value="$(arg camera_topic)" />
 		<param name="model_path" value="$(find lane_detector_ros)/model/804_tensor(0.5786)_lane_detection_network.pkl" />
 		<param name="image_path" value="/aveesSSD/dataset/CAM_FL/" />
-        <param name="result_lane_topic" value="/lane_detector/lane_pos/"/>
+        <param name="lane_topic" value="/lane_detector/lane_pos/"/>
 	</node>
 
 </launch>
